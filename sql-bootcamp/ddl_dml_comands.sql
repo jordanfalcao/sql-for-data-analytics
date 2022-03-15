@@ -96,3 +96,23 @@ RENAME COLUMN person TO people;
 ALTER TABLE new_info
 ALTER COLUMN people DROP NOT NULL; -- remove NOT NULL constraint from people column
 
+-- DROP A COLUMN
+ALTER TABLE new_info
+DROP COLUMN people;
+
+-- DROP A COLUMN IF EXISTS - NOT RETURNS ERROR IF THE COLUMN DOESN'T EXIST.
+ALTER TABLE new_info
+DROP COLUMN IF EXISTS people;
+
+
+--------------------------------------------------------------------------------------------
+-- CREATE A TABLE WITH CHECK CONSTRAINT - RETURN ERROR IF YOU TRY INSERT SOME VALUE OUT OF THE RANGE
+CREATE TABLE employees(
+	emp_id SERIAL PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	birthdate DATE CHECK (birthdate > '1900-01-01'),
+	hire_date DATE CHECK (hire_date > birthdate),
+	salary INTEGER CHECK (salary > 0)
+);
+
