@@ -71,8 +71,8 @@ FROM film;
 
 -----------------------------------------------------------------------------------------------------
 
--- COALESCE: RETURN FIRST NON NULL VALUE
-
+-- COALESCE: RETURNS THE FIRST ARGUMENT THAT IS NOT NULL
+COALESCE (argument_1, argument_2, …); --very useful when you want returns 0 instead NULL
 
 
 ----------------------------------------------------------------------------------------------------
